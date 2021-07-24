@@ -1,2 +1,2 @@
-# ez-save-system
-An easy save system for godot
+# Ez Save System
+An easy save system for Godot
