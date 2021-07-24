@@ -10,9 +10,9 @@ static func save(data, directory := "user://saves/", file_name := "save",
 	var path := directory + file_name + extension
 	var file := File.new()
 	
-	if not dir.dir_exists(directory):
+	if not directory_exists(directory):
 		dir.make_dir_recursive(directory)
-	
+
 	var error := file.open_encrypted_with_pass(path, File.WRITE, password)
 	if error == OK:
 		file.store_string(var2str(data))
@@ -23,7 +23,7 @@ static func load(directory := "user://saves/", file_name := "save",
 		extension := ".sav", password := "PASSWORD"):
 	var path = directory + file_name + extension
 	var file := File.new()
-	if file.file_exists(path):
+	if file_exists(directory, file_name, extension):
 		var error := file.open_encrypted_with_pass(path,
 			File.READ, password)
 		if error == OK:
